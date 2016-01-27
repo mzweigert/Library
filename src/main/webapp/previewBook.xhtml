@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{bookBean.id}"/>
+		<f:event type="preRenderView" listener="#{bookBean.loadBook}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<h:form id="bookform">
+			<h:panelGrid columns="2">
+				<h:outputText value="#{msg.bookTitle}"/>
+				<h:outputText value="#{bookBean.book.title}"/>
+				<h:outputText value="#{msg.bookRelaseDate}"/>
+				<h:outputText value="#{bookBean.book.relaseDate}" >
+					<f:convertDateTime pattern="yyyy.dd.MM" />
+				</h:outputText>
+				<h:outputText value="#{msg.bookRelase}"/>
+				<h:outputText value="#{bookBean.book.relase}"/>
+			</h:panelGrid>
+
+			<h:commandLink action="showBooks?faces-redirect=true">
+				<h:outputText value="#{msg.backToList}" />
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>

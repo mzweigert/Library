@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{readerBean.id}"/>
+		<f:event type="preRenderView" listener="#{readerBean.loadReader}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<h:form id="readerForm">
+			<h:panelGrid columns="2">
+				<h:outputText value="#{msg.readerName}"/>
+				<h:outputText value="#{readerBean.reader.name}"/>
+				<h:outputText value="#{msg.readerSurname}"/>
+				<h:outputText value="#{readerBean.reader.surname}"/>
+				<h:outputText value="#{msg.readerJoinDate}"/>
+				<h:outputText value="#{readerBean.reader.joinDate}" >
+					<f:convertDateTime pattern="yyyy.dd.MM" />
+				</h:outputText>
+			</h:panelGrid>
+
+			<h:commandLink action="showReaders?faces-redirect=true">
+				<h:outputText value="#{msg.backToList}" />
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>

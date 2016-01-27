@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns="http://www.w3.org/1999/xhtml"
+	template="/templates/default.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{hiringBean.id}"/>
+		<f:event type="preRenderView" listener="#{hiringBean.loadHiring}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<h:form id="hiringForm">
+			<h:panelGrid columns="2">
+				<h:outputText value="#{msg.hiringBook}"/>
+				<h:outputText value="#{hiringBean.hiring.book.title}"/>
+				<h:outputText value="#{msg.hiringReader}"/>
+				<h:outputText value="#{hiringBean.hiring.reader.name} #{hiringBean.hiring.reader.surname}"/>
+				<h:outputText value="#{msg.hiringHireDate}"/>
+				<h:outputText value="#{hiringBean.hiring.hireDate}" >
+					<f:convertDateTime pattern="yyyy.dd.MM" />
+				</h:outputText>
+			</h:panelGrid>
+
+
+			<h:commandLink action="showHirings?faces-redirect=true">
+				<h:outputText value="#{msg.backToList}" />
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>
