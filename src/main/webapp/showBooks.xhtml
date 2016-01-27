@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+    <h:form>
+    
+     <h:dataTable value="#{bookBean.allBooks}" var="item">
+      <f:facet name="header">#{msg.bookAllLabel}</f:facet>
+      
+      <h:column>
+        <f:facet name="header">#{msg.bookTitle}</f:facet>
+        #{item.title}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.bookRelaseDate}</f:facet>
+          <h:outputText value="#{item.relaseDate}" >
+              <f:convertDateTime pattern="yyyy.dd.MM" />
+          </h:outputText>
+      </h:column>
+
+         <h:column>
+             <f:facet name="header">#{msg.bookRelase}</f:facet>
+             #{item.relase}
+         </h:column>
+
+      
+      <h:column>
+        <h:commandLink value="#{msg.actionDelete}" action="#{bookBean.deleteBook}"/>
+      </h:column>
+
+         <h:column>
+             <h:link value="#{msg.actionDetails}" outcome="previewBook?includeViewParams=true">
+                 <f:param name="id" value="#{item.idBook}"/>
+             </h:link>
+         </h:column>
+
+         <h:column>
+             <h:link value="#{msg.actionUpdate}" outcome="updateBook?includeViewParams=true">
+                 <f:param name="id" value="#{item.idBook}"/>
+             </h:link>
+         </h:column>
+      
+     </h:dataTable>
+    </h:form>
+      
+	</ui:define>
+	
+</ui:composition>

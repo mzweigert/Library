@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns="http://www.w3.org/1999/xhtml"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+    <h:form>
+    
+     <h:dataTable value="#{hiringBean.allHirings}" var="item">
+      <f:facet name="header">#{msg.hiringAllLabel}</f:facet>
+      
+      <h:column>
+        <f:facet name="header">#{msg.hiringBook}</f:facet>
+        #{item.book.title}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.hiringReader}</f:facet>
+        #{item.reader.name} #{item.reader.surname}
+      </h:column>
+
+         <h:column>
+             <f:facet name="header">#{msg.hiringHireDate}</f:facet>
+             <h:outputText value="#{item.hireDate}" >
+                 <f:convertDateTime pattern="yyyy.dd.MM" />
+             </h:outputText>
+         </h:column>
+
+
+      
+      <h:column>
+
+        <h:commandLink value="#{msg.actionDelete}" action="#{hiringBean.deleteHiring}"/>
+      </h:column>
+
+         <h:column>
+             <h:link value="#{msg.actionDetails}" outcome="previewHiring?includeViewParams=true">
+                 <f:param name="id" value="#{item.idHiring}"/>
+             </h:link>
+         </h:column>
+
+         <h:column>
+             <h:link value="#{msg.actionUpdate}" outcome="updateHiring?includeViewParams=true">
+                 <f:param name="id" value="#{item.idHiring}"/>
+             </h:link>
+         </h:column>
+      
+     </h:dataTable>
+    </h:form>
+      
+	</ui:define>
+	
+</ui:composition>

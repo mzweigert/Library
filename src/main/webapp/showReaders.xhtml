@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+        <h:form>
+             <h:dataTable value="#{readerBean.allReaders}" var="item">
+                  <f:facet name="header">#{msg.readerAllLabel}</f:facet>
+
+                  <h:column>
+                    <f:facet name="header">#{msg.readerName}</f:facet>
+                    #{item.name}
+                  </h:column>
+
+                  <h:column>
+                    <f:facet name="header">#{msg.readerSurname}</f:facet>
+                    #{item.surname}
+                  </h:column>
+
+                  <h:column>
+                      <f:facet name="header">#{msg.readerJoinDate}</f:facet>
+                      <h:outputText value="#{item.joinDate}" >
+                          <f:convertDateTime pattern="yyyy.dd.MM" />
+                      </h:outputText>
+                  </h:column>
+
+                  <h:column>
+                    <h:commandLink value="#{msg.actionDelete}" action="#{readerBean.deleteReader}"/>
+                  </h:column>
+
+                     <h:column>
+                         <h:link value="#{msg.actionDetails}" outcome="previewReader?includeViewParams=true">
+                             <f:param name="id" value="#{item.idReader}"/>
+                         </h:link>
+                     </h:column>
+
+                     <h:column>
+                         <h:link value="#{msg.actionUpdate}" outcome="updateReader?includeViewParams=true">
+                             <f:param name="id" value="#{item.idReader}"/>
+                         </h:link>
+                     </h:column>
+
+             </h:dataTable>
+        </h:form>
+      
+	</ui:define>
+	
+</ui:composition>
