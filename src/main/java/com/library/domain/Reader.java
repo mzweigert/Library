@@ -2,7 +2,7 @@ package com.library.domain;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public class Reader implements Serializable

@@ -3,7 +3,7 @@ package com.library.service;
 import com.library.domain.Book;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +15,20 @@ public class BookManager {
     public BookManager() {
 
         //Seeding
-        Book book = new Book();
-        book.setIdBook(1L);
-        book.setTitle("example book");
-        book.setRelaseDate(Date.valueOf("2015-01-01"));
-        book.setRelase(150);
-        BookDB.add(book);
+//        Book book = new Book();
+//        book.setIdBook(1L);
+//        book.setTitle("example book");
+//        book.setRelaseDate(new Date(2015-01-01));
+//        book.setRelase(150);
+//        BookDB.add(book);
     }
 
     public void addBook(Book book) {
         Book newBook = new Book();
 
-        book.setTitle(book.getTitle());
-        book.setRelaseDate(book.getRelaseDate());
-        book.setRelase(book.getRelase());
+        newBook.setTitle(book.getTitle());
+        newBook.setRelaseDate(book.getRelaseDate());
+        newBook.setRelase(book.getRelase());
 
         if (BookDB.size() > 0) {
             newBook.setIdBook(BookDB.get(BookDB.size() - 1).getIdBook() + 1);

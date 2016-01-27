@@ -1,15 +1,10 @@
 package com.library.web;
 
 import com.library.domain.Reader;
-import com.library.service.BookManager;
 import com.library.service.ReaderManager;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.faces.model.ListDataModel;
-import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -82,29 +77,4 @@ public class ReaderFormBean implements Serializable {
 		return "showReaders";
 	}
 
-	/*public void correctTelephone(FacesContext context, UIComponent component,
-	/*	telephone = telephone.replace("-", "");
-		}
-
-		if (telephone.length() != 9) {
-			FacesMessage message = new FacesMessage();
-			message.setDetail("Numer telefonu musi składać się z 9 cyfr");
-			message.setSummary("Numer telefonu musi składać się z 9 cyfr");
-			message.setSeverity(FacesMessage.SEVERITY_ERROR);
-			throw new ValidatorException(message);
-		}
-
-		for (int i=0; i < telephone.length(); i++) {
-			try {
-				int number = Integer.parseInt(Character.toString(telephone.charAt(i)));
-			}
-			catch (Exception e) {
-				FacesMessage message = new FacesMessage();
-				message.setDetail("Numer telefonu może składać się jedynie z cyfr i ewentualnie myślników");
-				message.setSummary("Numer telefonu może składać się jedynie z cyfr i ewentualnie myślników");
-				message.setSeverity(FacesMessage.SEVERITY_ERROR);
-				throw new ValidatorException(message);
-			}
-		}
-	}*/
 }

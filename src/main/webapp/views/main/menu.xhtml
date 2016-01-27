@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+	<h:form>
+	  <ul>
+		<li>
+		  <h:commandLink action="home?faces-redirect=true">
+			<h:outputText value="#{msg.linkHome}" />
+		  </h:commandLink>
+		</li>
+		  <li>
+				#{msg.menuBook}
+			  <ul>
+				  <h:commandLink action="addBook?faces-redirect=true">
+					  <h:outputText value="#{msg.bookAddLabel}" />
+				  </h:commandLink>
+			  </ul>
+			  <ul>
+				  <h:commandLink action="showBooks?faces-redirect=true">
+					  <h:outputText value="#{msg.bookAllLabel}" />
+				  </h:commandLink>
+			  </ul>
+		  </li>
+		  <li>
+			  #{msg.menuReader}
+			  <ul>
+				  <h:commandLink action="addReader?faces-redirect=true">
+					  <h:outputText value="#{msg.readerAddLabel}" />
+				  </h:commandLink>
+			  </ul>
+			  <ul>
+				  <h:commandLink action="showReaders?faces-redirect=true">
+					  <h:outputText value="#{msg.readerAllLabel}" />
+				  </h:commandLink>
+			  </ul>
+		  </li>
+		  <li>
+			  #{msg.menuHiring}
+			  <ul>
+				  <h:commandLink action="addHiring?faces-redirect=true">
+					  <h:outputText value="#{msg.hiringAddLabel}" />
+				  </h:commandLink>
+			  </ul>
+			  <ul>
+				  <h:commandLink action="showHirings?faces-redirect=true">
+					  <h:outputText value="#{msg.hiringAllLabel}" />
+				  </h:commandLink>
+			  </ul>
+		  </li>
+
+
+	</ul>
+   </h:form>
+  </div>
+</ui:composition>

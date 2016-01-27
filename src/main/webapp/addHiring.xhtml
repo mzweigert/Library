@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns="http://www.w3.org/1999/xhtml"
+				template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<f:event type="preRenderView" listener="#{hiringBean.resetHiring}" />
+
+		<h:form id="hiringForm">
+
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.hiringBook}" />
+				<h:selectOneMenu value="#{hiringBean.hiring.idBook}" required="#{true}">
+					<f:selectItems value="#{bookBean.allBooks}" var="book" itemValue="#{book.idBook}" itemLabel="#{book.title}" />
+				</h:selectOneMenu>
+
+				<h:outputText value="#{msg.hiringReader}" />
+				<h:selectOneMenu value="#{hiringBean.hiring.idReader}" required="#{true}">
+					<f:selectItems value="#{readerBean.allReaders}" var="reader" itemValue="#{reader.idReader}" itemLabel="#{reader.name} #{reader.surname}" />
+				</h:selectOneMenu>
+
+				<h:outputText value="#{msg.hiringHireDate}" />
+				<h:inputText id="hireDate" value="#{hiringBean.hiring.hireDate}" required="#{true}">
+					<f:convertDateTime type="date" pattern="yyyy-dd-MM" />
+				</h:inputText>
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.actionAdd}"
+							 action="#{hiringBean.addHiring}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+							showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

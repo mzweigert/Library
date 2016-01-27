@@ -15,12 +15,12 @@ public class ReaderManager {
     public ReaderManager() {
 
         //Seeding
-        Reader newReader = new Reader();
-        newReader.setIdReader(1L);
-        newReader.setName("Mateusz");
-        newReader.setSurname("Zweigert");
-        newReader.setJoinDate(java.sql.Date.valueOf("2015-01-01"));
-        ReaderDB.add(newReader);
+//        Reader newReader = new Reader();
+//        newReader.setIdReader(1L);
+//        newReader.setName("Mateusz");
+//        newReader.setSurname("Zweigert");
+//        newReader.setJoinDate(new Date(2015-01-01));
+//        ReaderDB.add(newReader);
     }
 
     public void addReader(Reader reader) {

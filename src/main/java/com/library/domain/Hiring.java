@@ -1,12 +1,10 @@
 package com.library.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class Hiring implements Serializable
 {
-
-
     private long idHiring;
 
     private Book book;
