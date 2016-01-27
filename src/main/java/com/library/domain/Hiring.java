@@ -16,6 +16,7 @@ public class Hiring implements Serializable
     private Long idBook;
     private Long idReader;
 
+
     public Hiring()
     {
     }
@@ -66,6 +67,22 @@ public class Hiring implements Serializable
     public void setIdHiring(long idHiring)
     {
         this.idHiring = idHiring;
+    }
+
+    public Long getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(Long idBook) {
+        this.idBook = idBook;
+    }
+
+    public Long getIdReader() {
+        return idReader;
+    }
+
+    public void setIdReader(Long idReader) {
+        this.idReader = idReader;
     }
 
     @Override
