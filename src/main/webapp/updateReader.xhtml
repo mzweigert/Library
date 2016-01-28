@@ -15,9 +15,13 @@
 		<h:form id="readerForm">
 			<h:panelGrid columns="2">
 				<h:outputText value="#{msg.readerName}"/>
-				<h:inputText id="firstName" value="#{readerBean.reader.name}" required="#{true}"/>
+				<h:inputText id="firstName" value="#{readerBean.reader.name}" required="#{true}">
+					<f:validator validatorId="NameSurnameValidator" />
+				</h:inputText>
 				<h:outputText value="#{msg.readerSurname}"/>
-				<h:inputText id="lastName" value="#{readerBean.reader.surname}" required="#{true}"/>
+				<h:inputText id="lastName" value="#{readerBean.reader.surname}" required="#{true}">
+					<f:validator validatorId="NameSurnameValidator" />
+				</h:inputText>	
 				<h:outputText value="#{msg.readerJoinDate}"/>
 				<h:inputText id="joinDate" value="#{readerBean.reader.joinDate}" required="#{true}">
 					<f:convertDateTime type="date" pattern="yyyy-dd-MM" />
